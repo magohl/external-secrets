@@ -224,7 +224,7 @@ func fetchACRRefreshToken(aadAccessToken, tenantID, registryURL string) (string,
 		_ = res.Body.Close()
 	}()
 	if res.StatusCode != http.StatusOK {
-		return "", fmt.Errorf("count not generate refresh token, unexpected status code %d, expected %d", res.StatusCode, http.StatusOK)
+		return "", fmt.Errorf("could not generate refresh token, unexpected status code %d, expected %d", res.StatusCode, http.StatusOK)
 	}
 	body, err := io.ReadAll(res.Body)
 	if err != nil {
